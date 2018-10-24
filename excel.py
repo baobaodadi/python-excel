@@ -24,7 +24,6 @@ for var1 in mydict.keys():
                 else:
                     final[var1][var3]=[]
                     final[var1][var3].append(var2)
-# print(final)
 sheet=wb.create_sheet('统计结果')
 wb.save(filename='kaoqin.xlsx')
 temp = duration.copy()
