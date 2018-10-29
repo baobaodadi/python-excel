@@ -4,13 +4,19 @@ wb=load_workbook("kaoqin.xlsx")
 ws = wb.active
 first_column = ws['A']
 mydict=dict()
+name=["陈国威","段静远","高媛","耿博","胡冰薇",
+      "刘曼玲","卢文青","毛晓英","钱倩","孙楠楠",
+      "武忠震","王琦","杨融","张羽薇","朱江",
+      "邹鑫","胡文博","毛晓英"]
 for var in ws.iter_rows():
-    mydict[var[0].value] = []
+    if var[0].value in name:
+        mydict[var[0].value] = []
 
 for var in ws.iter_rows():
-    mydict[var[0].value].append(str(var[1].value))
+    if var[0].value in name:
+        mydict[var[0].value].append(str(var[1].value))
 
-duration=['2018-10-08','2018-10-09','2018-10-10','2018-10-11','2018-10-12','2018-10-13','2018-10-14','2018-10-15','2018-10-16','2018-10-17']
+duration=['2018-10-15','2018-10-16','2018-10-17','2018-10-18','2018-10-19','2018-10-20','2018-10-21','2018-10-22','2018-10-23','2018-10-24']
 final=dict()
 
 for var1 in mydict.keys():
@@ -24,6 +30,7 @@ for var1 in mydict.keys():
                 else:
                     final[var1][var3]=[]
                     final[var1][var3].append(var2)
+
 sheet=wb.create_sheet('统计结果')
 wb.save(filename='kaoqin.xlsx')
 temp = duration.copy()
